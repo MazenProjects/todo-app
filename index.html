@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>تطبيق إدارة المهام اليومية</title>
+  <meta name="description" content="تطبيق عربي بسيط وفعّال لإدارة المهام اليومية، يسمح لك بإضافة وتعديل وحذف المهام مع حفظ تلقائي للبيانات عبر المتصفح. يقدّم واجهة حديثة، ووضعًا ليليًا سلسًا، وتأثيرات حركية مميزة تمنحك تجربة استخدام احترافية وسهلة.">
+  <meta name="keywords" content="قائمة المهام, مهام يومية, To-Do App, تنظيم المهام, إدارة المهام">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="themeToggle" class="theme-toggle">🌙</button>
+
+  <div class="container">
+    <header class="header">
+      <h1 class="title">قائمة المهام</h1>
+      <div class="top-controls">
+        <input id="search" type="text" placeholder="ابحث عن مهمة..." />
+      </div>
+    </header>
+
+    <section class="input-area">
+      <input id="taskInput" type="text" placeholder="اكتب المهمة هنا..." />
+      <button id="addBtn" class="btn-primary">إضافة</button>
+    </section>
+
+    <section class="filters-area">
+      <button class="filter active" data-filter="all">الكل</button>
+      <button class="filter" data-filter="active">غير المكتملة</button>
+      <button class="filter" data-filter="completed">المكتملة</button>
+    </section>
+
+    <section id="taskList" class="task-list"></section>
+
+    <footer class="footer">
+      <div id="counters">0 مهام — 0 مكتملة — 0 متبقية</div>
+      <div class="footer-actions">
+        <button id="clearCompleted" class="btn">حذف المنجزة</button>
+        <button id="clearAll" class="btn">حذف الكل</button>
+      </div>
+    </footer>
+  </div>
+
+  <div id="deleteModal" class="modal" aria-hidden="true">
+    <div class="modal-box">
+      <p id="deleteText">هل تريد حذف المهمة؟</p>
+      <div class="modal-actions">
+        <button id="confirmDelete" class="modal-btn yes-btn" class="btn-danger" style="padding:10px 14px;border-radius:10px;background:linear-gradient(180deg,var(--danger),#d54444);color:#fff;border:0;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,0.12);transition:transform .12s,box-shadow .12s,background .35s;">نعم</button>
+        <button id="cancelDelete" class="btn">لا</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="editModal" class="modal" aria-hidden="true">
+    <div class="modal-box">
+      <p>تعديل المهمة</p>
+      <input id="editInput" type="text" />
+      <div class="modal-actions">
+        <button id="saveEdit" class="btn-primary">حفظ</button>
+        <button id="cancelEdit" class="btn">إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastWrap" class="toast-wrap"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
